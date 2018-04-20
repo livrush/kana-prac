@@ -1,1 +1,5 @@
+.git
+.vscode
+.env
+settings.json
 node_modules
