@@ -1,5 +1,5 @@
 const gimei = require('node-gimei');
-const kuroshiro = require("kuroshiro");
+const kuroshiro = require('kuroshiro');
 
 const address = gimei.address();
 const addressKatakana = address.katakana();
