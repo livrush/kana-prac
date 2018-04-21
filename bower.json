@@ -1,0 +1,28 @@
+{
+  "name": "kata-prac",
+  "description": "Simple SPA to practice katakana",
+  "main": "index.js",
+  "authors": [
+    "livrush"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "japanese",
+    "katakana",
+    "practice",
+    "language"
+  ],
+  "homepage": "https://github.com/livrush/kata-prac",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "browser-gimei": "^0.1.0",
+    "kuroshiro": "^0.2.1"
+  }
+}
