@@ -1,4 +1,4 @@
-const gimei = require('node-gimei');
+const gimei = require('browser-gimei');
 const kuroshiro = require('kuroshiro');
 
 const address = gimei.address();
