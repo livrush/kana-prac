@@ -23,6 +23,7 @@
   ],
   "dependencies": {
     "browser-gimei": "^0.1.0",
-    "kuroshiro": "^0.2.1"
+    "kuroshiro": "^0.2.1",
+    "pafiume-colors": "^0.1.0"
   }
 }
