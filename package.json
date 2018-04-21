@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
+    "less": "lessc styles.less styles.css --js -w",
     "build": "webpack"
   },
   "repository": {
@@ -19,12 +20,12 @@
   },
   "homepage": "https://github.com/livrush/kata-prac#readme",
   "dependencies": {
-    "browserify": "^16.2.0",
+    "browser-gimei": "^0.1.0",
     "kuroshiro": "^0.2.1",
-    "memfs": "^2.8.0",
     "node-gimei": "0.0.4"
   },
   "devDependencies": {
+    "less": "^3.0.1",
     "webpack": "^4.6.0",
     "webpack-cli": "^2.0.14"
   }
