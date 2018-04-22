@@ -1,5 +1,64 @@
-.test {
-  background: red;
-  height: 50px;
-  width: 50px;
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  text-align: center;
+}
+
+.spinner {
+  font-size: 10em;
+  z-index: 50;
+  animation-duration: 750ms;
+  animation-name: spin;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-timing-function: steps(8, end);
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%)
+}
+
+.text-english {
+  font-family: "Comfortaa", sans-serif;
+}
+
+.text-japanese {
+  font-family: "Rounded Mplus 1c", sans-serif;
+  font-size: 5em;
+  font-weight: 500;
+  margin: 0;
+}
+
+.practice > * {
+  height: 120px;
+}
+
+.practice input {
+  background: none;
+  border: 0;
+  font-family: comfortaa;
+  font-size: 5em;
+  text-align: center;
+  text-transform: uppercase;
+  outline: 0px;
+}
+
+.background-color {
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  z-index: -1;
+}
+
+.slide-open {
+  animation-duration: 2s;
+  animation-name: slideOpen;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }
