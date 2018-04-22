@@ -21,6 +21,7 @@ $(document).ready(function() {
 
   kuroshiro.init((err) => {
     const splitName = nameKatakana.split('');
+    const romajiName = kuroshiro.convert(nameKatakana, { to: 'romaji' })
     var romajiSyllables = splitName.map(kana => {
       return kuroshiro.convert(kana, { to: 'romaji' });
     });
@@ -30,15 +31,28 @@ $(document).ready(function() {
     $('.background-color')
       .css('background-color', colorDark)
       .addClass('slide-open');
-    createTextInput(colorDark);
+    createTextInput(colorDark, romajiName);
   })
 });
 
-function createTextInput(color) {
+function createTextInput(color, romajiName) {
+  const failures = 0;
   const $practiceInput = $('<input>')
     .css('color', color)
     .attr('placeholder', 'Practice Here')
+    .keyup((event) => {
+      const $event = $(event.currentTarget);
+      if (event.keyCode === 13) {
+        const userInput = $event.val();
+        if (userInput.toLowerCase() === romajiName.toLowerCase()) {
+          console.log('Great!');
+        } else {
+          failures++;
+          if (failures < 5) console.error('Try again!');
+          else console.log('Good try! It was:', romajiName);
+        }
+      }
+    })
     .appendTo('.practice')
     .focus();
-  console.log($practiceInput);
 }
