@@ -12,6 +12,15 @@ h1, h2, h3 {
   padding: 0.5em;
 }
 
+button:focus,
+input:focus {
+  outline: 0px;
+}
+
+button:active {
+  border-style: solid;
+}
+
 .spinner {
   font-size: 10em;
   z-index: 50;
@@ -35,6 +44,7 @@ h1, h2, h3 {
 
 .switch-alphabet {
   background: white;
+  border-width: 2px;
   font-size: 1em;
   height: 30px;
   text-align: center;
@@ -42,21 +52,21 @@ h1, h2, h3 {
 }
 
 .switch-alphabet:first-child {
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 
 .switch-alphabet:last-child {
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 .user-input {
   background: none;
   border: 0;
+  margin-top: 0.2em;
   text-align: center;
   text-transform: uppercase;
-  outline: 0px;
   width: 70vw;
 }
 
