@@ -33,7 +33,7 @@
   flex-grow: 1;
   margin: 0;
   max-width: 30%;
-  min-width: 250px;
+  min-width: 280px;
   padding: 2em;
 }
 
@@ -43,4 +43,19 @@
 
 .justify {
   text-align: justify;
+}
+
+@media screen and (max-width: 1000px) {
+  .text-large { font-size: 8em; }
+  .text-med { font-size: 4em; }
+}
+
+@media screen and (max-width: 700px) {
+  .text-large { font-size: 6em; }
+  .text-med { font-size: 3em; }
+}
+
+@media screen and (max-width: 400px) {
+  .text-large { font-size: 4em; }
+  .text-med { font-size: 2em; }
 }
