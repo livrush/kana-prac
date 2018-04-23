@@ -5,6 +5,9 @@
   "authors": [
     "livrush"
   ],
+  "install": {
+    "path": "assets"
+  },
   "license": "ISC",
   "keywords": [
     "japanese",

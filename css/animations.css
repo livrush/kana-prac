@@ -79,7 +79,7 @@
 
 .fa-thumbs-up,
 .fa-thumbs-down {
-  animation-duration: 3s;
+  animation-duration: 1s;
   animation-name: attempt;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
