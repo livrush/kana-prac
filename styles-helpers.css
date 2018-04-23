@@ -25,10 +25,22 @@
 
 .row {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .third {
   flex-grow: 1;
   margin: 0;
-  padding: 10px;
+  max-width: 30%;
+  min-width: 250px;
+  padding: 2em;
+}
+
+.left {
+  text-align: left;
+}
+
+.justify {
+  text-align: justify;
 }
