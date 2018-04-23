@@ -38,11 +38,14 @@
   animation-fill-mode: forwards;
 }
 
-.attempt.new {
-  animation-duration: 500ms;
+.attempt {
   animation-name: attemptFadeIn;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
+}
+
+.attempt.new {
+  animation-duration: 500ms;
 }
 
 .attempt.old {
