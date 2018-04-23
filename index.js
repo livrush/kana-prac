@@ -102,9 +102,6 @@ function createAttempt(type, katakana, romaji) {
     $clone.removeClass('new').addClass('old');
     $original.replaceWith($clone);
   })
-    // .removeClass('old')
-    // .removeClass('new')
-    // .addClass('old');
   const $attempt = $('<li>')
     .text(`${katakana} | ${romaji}`)
     .addClass('attempt new')
