@@ -55,7 +55,8 @@ function createTextInput(color, romajiName) {
         createUserStatusIcon(userWasCorrect);
         if (userWasCorrect) {
           console.log('Great!');
-        } else if (!userWasCorrect && failures < 5) {
+        } else if (!userWasCorrect && failures < 4) {
+          $event.val('');
           console.error('Try again!');
           failures++;
         } else {
