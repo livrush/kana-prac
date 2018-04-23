@@ -10,3 +10,10 @@
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+.slide-open {
+  animation-duration: 2s;
+  animation-name: slideOpen;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
