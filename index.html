@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/earlyaccess/roundedmplus1c.css" rel="stylesheet" />
   <link href="./bower_components/components-font-awesome/css/fontawesome-all.css" rel="stylesheet" />
   <link rel="stylesheet" href="animations.css">
-  <link rel="stylesheet" href="helper-styles.css">
+  <link rel="stylesheet" href="styles-helpers.css">
   <link rel="stylesheet" href="styles.css">
   <script src="./bower_components/jquery/dist/jquery.min.js"></script>
   <script src="./bower_components/browser-gimei/dist/gimei.min.js"></script>
@@ -30,7 +30,7 @@
   <div class="bottom" style="display: none;">
     <div id="user-input"></div>
     <div id="attempts" class="row">
-      <div id="failure" class="third">
+      <div id="failure" class="third left">
         <h2>FAILURES</h2>
         <ul id="attempt-failure" class="attempts">
           <li class="attempt"></li>
@@ -38,7 +38,7 @@
           <li class="attempt"></li>
         </ul>
       </div>
-      <div id="success" class="third">
+      <div id="success" class="third left">
         <h2>SUCCESSES</h2>
         <ul id="attempt-success" class="attempts">
           <li class="attempt"></li>
@@ -46,7 +46,10 @@
           <li class="attempt"></li>
         </ul>
       </div>
-      <div id="about" class="third"></div>
+      <div id="about" class="third left">
+        <h2>ABOUT</h2>
+        <p class="justify">KATA-PRAC is a simple application created to practice reading katakana. Simply type in what you see, hit enter, and you will either have succeeded and receive a new word, or fail and get another chance!</p>
+      </div>
     </div>
   </div>
   <script src="./index.js"></script>
