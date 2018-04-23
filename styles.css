@@ -26,6 +26,31 @@ h1, h2, h3 {
   position: relative;
 }
 
+.switches {
+  margin: 1em;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.switch-alphabet {
+  background: white;
+  font-size: 1em;
+  height: 30px;
+  text-align: center;
+  width: 40px;
+}
+
+.switch-alphabet:first-child {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.switch-alphabet:last-child {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
 .user-input {
   background: none;
   border: 0;
@@ -58,5 +83,7 @@ h1, h2, h3 {
 }
 
 @media screen and (max-width: 400px) {
-
+  header {
+    text-align: left;
+  }
 }
