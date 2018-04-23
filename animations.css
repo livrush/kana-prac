@@ -1,8 +1,8 @@
-@keyframes slideOpen {
+@keyframes backgroundSlideDown {
   0% { height: 0vh; }
-  25% { height: 75vh; }
-  50% { height: 40vh; }
-  75% { height: 60vh; }
+  25% { height: 55vh; }
+  50% { height: 42.5vh; }
+  75% { height: 52.5vh; }
   100% { height: 50vh; }
 }
 
@@ -11,9 +11,40 @@
   100% { transform: rotate(360deg); }
 }
 
+@keyframes attemptFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes attemptSlideDown {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 .slide-open {
   animation-duration: 2s;
-  animation-name: slideOpen;
+  animation-name: backgroundSlideDown;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
+}
+
+.attempt.new {
+  animation-duration: 500ms;
+  animation-name: attemptFadeIn;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.attempt.old {
+  animation-name: attemptSlideDown;
 }
