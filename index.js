@@ -1,7 +1,9 @@
+let alphabet = 'katakana';
+
 $(document).ready(function() {
   console.log('ready');
   const name = gimei.name();
-  const nameKatakana = name.katakana();
+  const nameKatakana = name[alphabet]();
   const colors = pafiumeColors.random();
   const colorDark = colors.hues[3];
   const colorLight = colors.hues[1];
@@ -24,11 +26,20 @@ $(document).ready(function() {
     var romajiSyllables = splitName.map(kana => {
       return kuroshiro.convert(kana, { to: 'romaji' });
     });
+    $('.switch-alphabet').click(function(event) {
+      const $button = $(event.currentTarget);
+      const type = $button.attr('id');
+      $('.switch-alphabet').removeClass('active');
+      $(`#${type}`).addClass('active');
+      swapLanguages(colorLight, colorDark);
+      $('#type-alphabet').text(type.slice(0, 4).toUpperCase());
+    });
     $('.spinner').toggle();
     $('.top')
       .css('background-color', colorDark)
       .toggle()
       .addClass('slide-open');
+    swapLanguages(colorLight, colorDark);
     $('.bottom')
       .css('color', colorDark)
       .toggle();
@@ -98,4 +109,18 @@ function createAttempt(type, katakana, romaji) {
     .addClass('attempt new')
     .prependTo($attemptType);
   $attemptType.children().last().remove();
+}
+
+function swapLanguages(colorLight, colorDark) {
+  $('.switch-alphabet')
+  .css({
+    color: colorLight,
+    'border-color': colorLight,
+    background: colorDark,
+  });
+  $('.switch-alphabet.active')
+    .css({
+      color: colorDark,
+      background: colorLight,
+    });
 }
