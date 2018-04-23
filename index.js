@@ -29,6 +29,7 @@ $(document).ready(function() {
     $('.switch-alphabet').click(function(event) {
       const $button = $(event.currentTarget);
       const type = $button.attr('id');
+      alphabet = type;
       $('.switch-alphabet').removeClass('active');
       $(`#${type}`).addClass('active');
       swapLanguages(colorLight, colorDark);
