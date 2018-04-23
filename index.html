@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
-  <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Comfortaa|Varela+Round" rel="stylesheet">
   <link href="https://fonts.googleapis.com/earlyaccess/roundedmplus1c.css" rel="stylesheet" />
   <link href="./bower_components/components-font-awesome/css/fontawesome-all.css" rel="stylesheet" />
   <link rel="stylesheet" href="animations.css">
@@ -19,13 +19,34 @@
   <div id="loading" class="center">
     <i class="fa fa-spinner spinner"></i>
   </div>
-  <div class="background-color"></div>
-  <header>
-    <h1>KATA-PRAC</h1>
-  </header>
-  <div class="practice center">
-    <p id="practice-text" class="text-japanese"></p>
-    <!-- <input type="text" placeholder="Practice here" autofocus> -->
+  <div class="top">
+    <header>
+      <h1>KATA-PRAC</h1>
+    </header>
+    <div id="attempt-status" class="status text-large"></div>
+    <p id="practice-text" class="practice-text text-japanese text-med"></p>
+  </div>
+  <div class="bottom">
+    <div id="user-input"></div>
+    <div id="attempts" class="row">
+      <div id="failure" class="third">
+        <h2>Failures</h2>
+        <ul id="attempt-failure" class="attempts">
+          <li class="attempt">Hello</li>
+          <li class="attempt">Hello</li>
+          <li class="attempt">Hello</li>
+        </ul>
+      </div>
+      <div id="success" class="third">
+        <h2>Failures</h2>
+        <ul id="attempt-success" class="attempts">
+          <li class="attempt">Hello</li>
+          <li class="attempt">Hello</li>
+          <li class="attempt">Hello</li>
+        </ul>
+      </div>
+      <div id="about" class="third"></div>
+    </div>
   </div>
   <script src="./index.js"></script>
 </body>
