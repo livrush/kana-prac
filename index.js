@@ -25,7 +25,7 @@ $(document).ready(function() {
 
   kuroshiro.init((err) => {
     const splitName = nameKatakana.split('');
-    const romajiName = kuroshiro.convert(nameKatakana, { to: 'romaji' })
+    const nameRomaji = kuroshiro.convert(nameKatakana, { to: 'romaji' })
     var romajiSyllables = splitName.map(kana => {
       return kuroshiro.convert(kana, { to: 'romaji' });
     });
@@ -34,14 +34,14 @@ $(document).ready(function() {
     $('.top')
       .css('background-color', colorDark)
       .addClass('slide-open');
-    createTextInput(colorDark, romajiName);
+    createTextInput(colorDark, nameKatakana, nameRomaji);
   })
 });
 
-function createTextInput(color, romajiName) {
+function createTextInput(color, nameKatakana, nameRomaji) {
   let failures = 0;
   const $practiceInput = $('<input>')
-    .addClass('user-input text-med')
+    .addClass('user-input text-english text-med')
     .css({
       color: color,
       'border-bottom': `${color} 3px solid`,
@@ -51,7 +51,7 @@ function createTextInput(color, romajiName) {
       const $event = $(event.currentTarget);
       if (event.keyCode === 13) {
         const userInput = $event.val();
-        const userWasCorrect = userInput.toLowerCase() === romajiName.toLowerCase()
+        const userWasCorrect = userInput.toLowerCase() === nameRomaji.toLowerCase()
         createUserStatusIcon(userWasCorrect);
         if (userWasCorrect) {
           console.log('Great!');
@@ -59,8 +59,9 @@ function createTextInput(color, romajiName) {
           $event.val('');
           console.error('Try again!');
           failures++;
+          createAttempt('failure', nameKatakana, nameRomaji);
         } else {
-          console.log('Good try! It was:', romajiName);
+          console.log('Good try! It was:', nameRomaji);
           failures = 0;
         }
 
