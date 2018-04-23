@@ -7,6 +7,11 @@ body {
   text-align: center;
 }
 
+h1, h2, h3 {
+  margin: 0;
+  padding: 0.5em;
+}
+
 .spinner {
   font-size: 10em;
   z-index: 50;
@@ -17,48 +22,42 @@ body {
   animation-timing-function: steps(8, end);
 }
 
-.center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%)
+.top {
+  position: relative;
 }
 
-.text-english {
-  font-family: "Comfortaa", sans-serif;
-}
-
-.text-japanese {
-  font-family: "Rounded Mplus 1c", sans-serif;
-  font-size: 5em;
-  font-weight: 500;
-  margin: 0;
-}
-
-.practice > * {
-  height: 120px;
-}
-
-.practice input {
+.user-input {
   background: none;
   border: 0;
   font-family: comfortaa;
-  font-size: 5em;
   text-align: center;
   text-transform: uppercase;
   outline: 0px;
+  width: 70vw;
 }
 
-.background-color {
+.practice-text {
   position: absolute;
-  top: 0;
-  width: 100vw;
-  z-index: -1;
+  bottom: 0;
+  width: 100%;
 }
 
-.slide-open {
-  animation-duration: 2s;
-  animation-name: slideOpen;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
+.attempts {
+  padding: 0;
+}
+
+.attempt {
+  list-style: none;
+}
+
+@media screen and (max-width: 1000px) {
+
+}
+
+@media screen and (max-width: 700px) {
+
+}
+
+@media screen and (max-width: 400px) {
+
 }
