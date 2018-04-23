@@ -39,13 +39,13 @@
 }
 
 .attempt {
-  animation-name: attemptFadeIn;
-  animation-iteration-count: 1;
+  animation-duration: 500ms;
   animation-fill-mode: forwards;
+  animation-iteration-count: 1;
 }
 
 .attempt.new {
-  animation-duration: 500ms;
+  animation-name: attemptFadeIn;
 }
 
 .attempt.old {
