@@ -31,6 +31,60 @@
   }
 }
 
+@keyframes attempt {
+  0% {
+    transform: rotate(0deg);
+    opacity: 1;
+  }
+  10% {
+    transform: rotate(-10deg);
+    opacity: 0.9;
+  }
+  20% {
+    transform: rotate(10deg);
+    opacity: 0.8;
+  }
+  30% {
+    transform: rotate(-15deg);
+    opacity: 0.7;
+  }
+  40% {
+    transform: rotate(15deg);
+    opacity: 0.6;
+  }
+  50% {
+    transform: rotate(-10deg);
+    opacity: 0.5;
+  }
+  60% {
+    transform: rotate(10deg);
+    opacity: 0.4;
+  }
+  70% {
+    transform: rotate(-5deg);
+    opacity: 0.3;
+  }
+  80% {
+    transform: rotate(5deg);
+    opacity: 0.2;
+  }
+  90% {
+    transform: rotate(0deg);
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.fa-thumbs-up,
+.fa-thumbs-down {
+  animation-duration: 3s;
+  animation-name: attempt;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
 .slide-open {
   animation-duration: 1s;
   animation-name: backgroundSlideDown;
