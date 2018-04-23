@@ -47,8 +47,8 @@ function createTextInput(color, nameKatakana, nameRomaji) {
     // .attr('placeholder', 'Practice Here')
     .keyup((event) => {
       const $event = $(event.currentTarget);
-      if (event.keyCode === 13) {
-        const userInput = $event.val();
+      const userInput = $event.val();
+      if (event.keyCode === 13 && userInput) {
         const userWasCorrect = userInput.toLowerCase() === nameRomaji.toLowerCase()
         createUserStatusIcon(userWasCorrect);
         if (userWasCorrect) {
@@ -61,6 +61,7 @@ function createTextInput(color, nameKatakana, nameRomaji) {
           createAttempt('failure', nameKatakana, userInput);
         } else {
           console.log('Good try! It was:', nameRomaji);
+          createAttempt('failure', nameKatakana, userInput);
           failures = 0;
         }
 
@@ -83,7 +84,15 @@ function createUserStatusIcon(status) {
 
 function createAttempt(type, katakana, romaji) {
   const $attemptType = $(`#attempt-${type}`);
-  $attemptType.children().removeClass('new').addClass('old');
+  $attemptType.children().each(function (index, child) {
+    const $original = $(child);
+    const $clone = $original.clone(true);
+    $clone.removeClass('new').addClass('old');
+    $original.replaceWith($clone);
+  })
+    // .removeClass('old')
+    // .removeClass('new')
+    // .addClass('old');
   const $attempt = $('<li>')
     .text(`${katakana} | ${romaji}`)
     .addClass('attempt new')
