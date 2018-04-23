@@ -5,15 +5,10 @@ $(document).ready(function() {
   const colors = pafiumeColors.random();
   const colorDark = colors.hues[3];
   const colorLight = colors.hues[1];
-  $('#user-input').toggle();
   $('body')
     .css({
       background: colorLight,
       color: colorLight,
-    });
-  $('.bottom')
-    .css({
-      color: colorDark,
     });
   $('.spinner')
     .css({
@@ -30,10 +25,13 @@ $(document).ready(function() {
       return kuroshiro.convert(kana, { to: 'romaji' });
     });
     $('.spinner').toggle();
-    $('#user-input').toggle();
     $('.top')
       .css('background-color', colorDark)
+      .toggle()
       .addClass('slide-open');
+    $('.bottom')
+      .css('color', colorDark)
+      .toggle();
     createTextInput(colorDark, nameKatakana, nameRomaji);
   })
 });
@@ -55,11 +53,12 @@ function createTextInput(color, nameKatakana, nameRomaji) {
         createUserStatusIcon(userWasCorrect);
         if (userWasCorrect) {
           console.log('Great!');
+          createAttempt('success', nameKatakana, nameRomaji);
         } else if (!userWasCorrect && failures < 4) {
           $event.val('');
           console.error('Try again!');
           failures++;
-          createAttempt('failure', nameKatakana, nameRomaji);
+          createAttempt('failure', nameKatakana, userInput);
         } else {
           console.log('Good try! It was:', nameRomaji);
           failures = 0;
@@ -83,5 +82,11 @@ function createUserStatusIcon(status) {
 }
 
 function createAttempt(type, katakana, romaji) {
-
+  const $attemptType = $(`#attempt-${type}`);
+  $attemptType.children().removeClass('new').addClass('old');
+  const $attempt = $('<li>')
+    .text(`${katakana} | ${romaji}`)
+    .addClass('attempt new')
+    .prependTo($attemptType);
+  $attemptType.children().last().remove();
 }
