@@ -1,12 +1,11 @@
 let alphabet = 'katakana';
+const colors = pafiumeColors.random();
+const colorDark = colors.hues[3];
+const colorLight = colors.hues[1];
 
 $(document).ready(function() {
-  console.log('ready');
   const name = gimei.name();
   const nameKatakana = name[alphabet]();
-  const colors = pafiumeColors.random();
-  const colorDark = colors.hues[3];
-  const colorLight = colors.hues[1];
   $('body')
     .css({
       background: colorLight,
@@ -16,10 +15,42 @@ $(document).ready(function() {
     .css({
       color: colorDark,
     });
+
+  createPracticeWord(alphabet, colorDark, colorLight);
+  // kuroshiro.init((err) => {
+  //   const splitName = nameKatakana.split('');
+  //   const nameRomaji = kuroshiro.convert(nameKatakana, { to: 'romaji' })
+  //   var romajiSyllables = splitName.map(kana => {
+  //     return kuroshiro.convert(kana, { to: 'romaji' });
+  //   });
+  //   $('.switch-alphabet').click(function(event) {
+  //     const $button = $(event.currentTarget);
+  //     const type = $button.attr('id');
+  //     alphabet = type;
+  //     $('.switch-alphabet').removeClass('active');
+  //     $(`#${type}`).addClass('active');
+  //     swapLanguages(colorLight, colorDark);
+  //     $('#type-alphabet').text(type.slice(0, 4).toUpperCase());
+  //   });
+  //   $('.spinner').toggle();
+  //   $('.top')
+  //     .css('background-color', colorDark)
+  //     .toggle()
+  //     .addClass('slide-open');
+  //   swapLanguages(colorLight, colorDark);
+  //   $('.bottom')
+  //     .css('color', colorDark)
+  //     .toggle();
+  //   createTextInput(colorDark, nameKatakana, nameRomaji);
+  // })
+});
+
+function createPracticeWord(type, colorDark, colorLight) {
+  const name = gimei.name();
+  const nameKatakana = name[type]();
+  console.log(nameKatakana);
   $('#practice-text')
     .text(nameKatakana);
-
-
   kuroshiro.init((err) => {
     const splitName = nameKatakana.split('');
     const nameRomaji = kuroshiro.convert(nameKatakana, { to: 'romaji' })
@@ -35,20 +66,21 @@ $(document).ready(function() {
       swapLanguages(colorLight, colorDark);
       $('#type-alphabet').text(type.slice(0, 4).toUpperCase());
     });
-    $('.spinner').toggle();
+    $('.spinner').hide();
     $('.top')
       .css('background-color', colorDark)
-      .toggle()
+      .show()
       .addClass('slide-open');
     swapLanguages(colorLight, colorDark);
     $('.bottom')
       .css('color', colorDark)
-      .toggle();
+      .show();
     createTextInput(colorDark, nameKatakana, nameRomaji);
-  })
-});
+  });
+}
 
 function createTextInput(color, nameKatakana, nameRomaji) {
+  $('.user-input').remove();
   let failures = 0;
   const $practiceInput = $('<input>')
     .addClass('user-input text-english text-med')
@@ -66,6 +98,7 @@ function createTextInput(color, nameKatakana, nameRomaji) {
         if (userWasCorrect) {
           console.log('Great!');
           createAttempt('success', nameKatakana, nameRomaji);
+          createPracticeWord(alphabet, colorDark, colorLight);
         } else if (!userWasCorrect && failures < 4) {
           $event.val('');
           console.error('Try again!');
