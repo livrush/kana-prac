@@ -97,6 +97,7 @@ function createTextInput(color, nameKatakana, nameRomaji) {
         const userWasCorrect = userInput.toLowerCase() === nameRomaji.toLowerCase()
         createUserStatusIcon(userWasCorrect);
         if (userWasCorrect) {
+          $event.val('');
           console.log('Great!');
           createAttempt('success', nameKatakana, nameRomaji);
           createPracticeWord(alphabet, colorDark, colorLight);
@@ -106,8 +107,10 @@ function createTextInput(color, nameKatakana, nameRomaji) {
           failures++;
           createAttempt('failure', nameKatakana, userInput);
         } else {
+          $event.val('');
           console.log('Good try! It was:', nameRomaji);
           createAttempt('failure', nameKatakana, userInput);
+          createPracticeWord(alphabet, colorDark, colorLight);
           failures = 0;
         }
 
