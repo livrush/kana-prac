@@ -46,7 +46,8 @@ $(document).ready(function() {
 });
 
 function createPracticeWord(type, colorDark, colorLight) {
-  const name = gimei.name();
+  const gender = Math.round(Math.random()) ? 'male' : 'female';
+  const name = gimei[gender]();
   const nameKatakana = name[type]();
   console.log(nameKatakana);
   $('#practice-text')
