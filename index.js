@@ -13,12 +13,18 @@ $(document).ready(function() {
     .css({
       color: colorDark,
     });
-
+  $('.switch-alphabet').click(function(event) {
+    const $button = $(event.currentTarget);
+    const type = $button.attr('id');
+    alphabet = type;
+    $('.switch-alphabet').removeClass('active');
+    $(`#${type}`).addClass('active');
+    swapLanguages(colorLight, colorDark);
+  });
   createPracticeWord(alphabet, colorDark, colorLight);
 });
 
 function createPracticeWord(type, colorDark, colorLight) {
-  console.log('shit');
   const gender = Math.round(Math.random()) ? 'male' : 'female';
   const name = gimei[gender]();
   const nameKatakana = name[type]();
@@ -29,14 +35,6 @@ function createPracticeWord(type, colorDark, colorLight) {
     const nameRomaji = kuroshiro.convert(nameKatakana, { to: 'romaji' })
     var romajiSyllables = splitName.map(kana => {
       return kuroshiro.convert(kana, { to: 'romaji' });
-    });
-    $('.switch-alphabet').click(function(event) {
-      const $button = $(event.currentTarget);
-      const type = $button.attr('id');
-      alphabet = type;
-      $('.switch-alphabet').removeClass('active');
-      $(`#${type}`).addClass('active');
-      swapLanguages(colorLight, colorDark);
     });
     $('.spinner').hide();
     $('.top')
