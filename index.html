@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>KATA-PRAC</title>
+  <title>KANA-PRAC</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Varela+Round"/>
   <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/roundedmplus1c.css"/>
   <link rel="stylesheet" href="./assets/components-font-awesome/fontawesome-all.css"/>
@@ -22,7 +22,7 @@
   </div>
   <div class="top" style="display: none;">
     <header>
-      <h1><span id="type-alphabet">KANA</span>-PRAC</h1>
+      <h1>KANA-PRAC</h1>
       <div class="switches row">
         <button id="katakana" class="text-japanese switch-alphabet active">ア</button>
         <button id="hiragana" class="text-japanese switch-alphabet">あ</button>
@@ -34,9 +34,9 @@
   <div class="bottom" style="display: none;">
     <div id="user-input"></div>
     <div id="attempts" class="row">
-      <div id="failure" class="third left">
-        <h2>FAILURES</h2>
-        <ul id="attempt-failure" class="attempts">
+      <div id="success" class="third left">
+        <h2>CORRECT</h2>
+        <ul id="attempt-success" class="attempts">
           <li class="attempt"></li>
           <li class="attempt"></li>
           <li class="attempt"></li>
@@ -44,9 +44,9 @@
           <li class="attempt"></li>
         </ul>
       </div>
-      <div id="success" class="third left">
-        <h2>SUCCESSES</h2>
-        <ul id="attempt-success" class="attempts">
+      <div id="failure" class="third left">
+        <h2>MISTAKES</h2>
+        <ul id="attempt-failure" class="attempts">
           <li class="attempt"></li>
           <li class="attempt"></li>
           <li class="attempt"></li>
@@ -56,10 +56,11 @@
       </div>
       <div id="about" class="third left">
         <h2>ABOUT</h2>
-        <p class="justify">KATA-PRAC is a simple application created to practice reading katakana. Simply type in what you see, hit enter, and you will either have succeeded and receive a new word, or fail and get another chance!</p>
+        <p class="justify">KANA-PRAC is a simple application created to practice reading katakana. Simply type in what you see, hit enter, and you will either have succeeded and receive a new word, or fail and get another chance!</p>
       </div>
     </div>
   </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js"></script>
   <script src="./index.js"></script>
 </body>
 </html>
