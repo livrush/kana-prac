@@ -18,6 +18,7 @@ $(document).ready(function() {
 });
 
 function createPracticeWord(type, colorDark, colorLight) {
+  console.log('shit');
   const gender = Math.round(Math.random()) ? 'male' : 'female';
   const name = gimei[gender]();
   const nameKatakana = name[type]();
@@ -36,14 +37,13 @@ function createPracticeWord(type, colorDark, colorLight) {
       $('.switch-alphabet').removeClass('active');
       $(`#${type}`).addClass('active');
       swapLanguages(colorLight, colorDark);
-      $('#type-alphabet').text(type.slice(0, 4).toUpperCase());
     });
     $('.spinner').hide();
     $('.top')
       .css('background-color', colorDark)
       .show()
       .addClass('slide-open');
-    swapLanguages(colorLight, colorDark);
+    // swapLanguages(colorLight, colorDark);
     $('.bottom')
       .css('color', colorDark)
       .show();
@@ -116,14 +116,15 @@ function createAttempt(type, katakana, romaji) {
 
 function swapLanguages(colorLight, colorDark) {
   $('.switch-alphabet')
-  .css({
-    color: colorLight,
-    'border-color': colorLight,
-    background: colorDark,
-  });
+    .css({
+      color: colorLight,
+      'border-color': colorLight,
+      background: colorDark,
+    });
   $('.switch-alphabet.active')
     .css({
       color: colorDark,
       background: colorLight,
     });
+  createPracticeWord(alphabet, colorDark, colorLight);
 }
