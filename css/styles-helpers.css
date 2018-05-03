@@ -77,4 +77,5 @@
 @media screen and (max-width: 400px) {
   .text-large { font-size: 4em; }
   .text-med { font-size: 2em; }
+  .third { max-width: 100%; }
 }
