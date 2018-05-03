@@ -29,6 +29,10 @@
   justify-content: space-around;
 }
 
+.space-between {
+  justify-content: space-between;
+}
+
 .third {
   flex-grow: 1;
   margin: 0;
