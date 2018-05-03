@@ -1,8 +1,8 @@
 @keyframes backgroundSlideDownBig {
   0%   { height: 00vh; }
-  25%  { height: 55vh; }
-  50%  { height: 42.5vh; }
-  75%  { height: 52.5vh; }
+  25%  { height: 56vh; }
+  50%  { height: 47vh; }
+  75%  { height: 53vh; }
   100% { height: 50vh; }
 }
 
