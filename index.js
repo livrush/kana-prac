@@ -2,6 +2,10 @@ let alphabet = 'katakana';
 const colors = pafiumeColors.random();
 const colorDark = colors.hues[3];
 const colorLight = colors.hues[1];
+const counts = {
+  success: 0,
+  failure: 0,
+};
 
 $(document).ready(function() {
   $('body')
@@ -79,15 +83,21 @@ function createTextInput(color, nameKatakana, nameRomaji) {
           console.log('Great!');
           createAttempt('success', nameKatakana, nameRomaji);
           createPracticeWord(alphabet, colorDark, colorLight);
+          counts.success++;
+          $('#success-count').text(counts.success);
         } else if (!userWasCorrect && failures < 4) {
           console.error('Try again!');
           failures++;
           createAttempt('failure', nameKatakana, userInput);
+          counts.failure++;
+          $('#failure-count').text(counts.failure);
         } else {
           console.log('Good try! It was:', nameRomaji);
           createAttempt('failure', nameKatakana, userInput);
           createPracticeWord(alphabet, colorDark, colorLight);
           failures = 0;
+          counts.failure++;
+          $('#failure-count').text(counts.failure);
         }
 
       }
