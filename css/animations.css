@@ -1,9 +1,17 @@
-@keyframes backgroundSlideDown {
-  0% { height: 0vh; }
-  25% { height: 55vh; }
-  50% { height: 42.5vh; }
-  75% { height: 52.5vh; }
+@keyframes backgroundSlideDownBig {
+  0%   { height: 00vh; }
+  25%  { height: 55vh; }
+  50%  { height: 42.5vh; }
+  75%  { height: 52.5vh; }
   100% { height: 50vh; }
+}
+
+@keyframes backgroundSlideDownSmall {
+  0%   { height: 00vh; }
+  25%  { height: 37vh; }
+  50%  { height: 31vh; }
+  75%  { height: 35vh; }
+  100% { height: 33vh; }
 }
 
 @keyframes spin {
@@ -87,7 +95,7 @@
 
 .slide-open {
   animation-duration: 1s;
-  animation-name: backgroundSlideDown;
+  animation-name: backgroundSlideDownBig;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }
@@ -104,4 +112,10 @@
 
 .attempt.old {
   animation-name: attemptSlideDown;
+}
+
+@media screen and (max-width: 500px) {
+  .slide-open {
+    animation-name: backgroundSlideDownSmall;
+  }
 }
