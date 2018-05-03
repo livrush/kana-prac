@@ -13,14 +13,25 @@ $(document).ready(function() {
     .css({
       color: colorDark,
     });
-  $('.switch-alphabet').click(function(event) {
-    const $button = $(event.currentTarget);
-    const type = $button.attr('id');
-    alphabet = type;
-    $('.switch-alphabet').removeClass('active');
-    $(`#${type}`).addClass('active');
-    swapLanguages(colorLight, colorDark);
-  });
+  $('.switch-alphabet')
+    .click(function(event) {
+      const $button = $(event.currentTarget);
+      const type = $button.attr('id');
+      alphabet = type;
+      $('.switch-alphabet').removeClass('active');
+      $(`#${type}`).addClass('active');
+      swapLanguages(colorLight, colorDark);
+    })
+    .css({
+      color: colorLight,
+      'border-color': colorLight,
+      background: colorDark,
+    });
+  $('.switch-alphabet.active')
+    .css({
+      color: colorDark,
+      background: colorLight,
+    });
   createPracticeWord(alphabet, colorDark, colorLight);
 });
 
@@ -41,7 +52,6 @@ function createPracticeWord(type, colorDark, colorLight) {
       .css('background-color', colorDark)
       .show()
       .addClass('slide-open');
-    // swapLanguages(colorLight, colorDark);
     $('.bottom')
       .css('color', colorDark)
       .show();
